@@ -1,0 +1,47 @@
+﻿@using Kendo.Mvc.UI
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    @(Html.Kendo().Button()
+    .Name("myButton")
+    .ThemeColor(ThemeColor.Success)
+    .Content("Hello button"))
+</div>
+<div>
+    @(Html.Kendo().Button()
+        .Name("primaryDisabledButton1")
+        .ThemeColor(ThemeColor.Primary)
+        .Tag("span")
+        .Enable(false)
+        .Content("Primary disabled via configuration"))
+</div>
+
+<div class="k-d-flex k-justify-content-center" id="select-dates-container">
+    <div class="k-w-300">
+        @(Html.Kendo().DateRangePicker()
+            .Name("daterangepicker")
+            .HtmlAttributes(new { style = "width: 100%", title = "daterangepicker" })
+           
+            )
+    </div>
+</div>
+
+<script>
+    $(document).ready( function () {
+        kendo.bind($("#select-dates-container"), {});
+    });
+</script>
+
+<style>
+    #select-dates-container {
+        padding-top: 54px;
+    }
+</style>
