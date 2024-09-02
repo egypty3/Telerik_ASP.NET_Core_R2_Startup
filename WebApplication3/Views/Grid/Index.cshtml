@@ -1,0 +1,22 @@
+﻿@model List<Customer>
+<h1>Grid Controller Index View Welcoming you!!!!</h1>
+
+@(Html.Kendo().Grid(Model)
+    .Name("grid")
+    .Columns(columns =>
+    {
+        columns.Bound(c => c.ContactName).Width(140);
+        columns.Bound(c => c.ContactTitle).Width(190);
+        columns.Bound(c => c.CompanyName);
+        columns.Bound(c => c.Country).Width(110);        
+    })   
+    .Pageable()   
+    .Sortable()
+    .Scrollable()   
+    .DataSource(dataSource => dataSource
+        .Ajax()
+        .PageSize(10)
+        .ServerOperation(false)      
+        
+    )
+)
